@@ -1,4 +1,4 @@
--amiralbatti
-============
+-Hesap makinası pythonla tarafımdan yazılmıştır 
+=======
 
-hiç
+
