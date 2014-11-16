@@ -1,195 +1,40 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+from __future__ import division
+islem1 = "(1) toplama" 
+islem2 = "(2) çıkarma"
+islem3 = "(3) çarpma"
+islem4 = "(4) bölme"
+print (islem1)
+print (islem2)
+print (islem3)
+print (islem4)
+soru = input("Lütfen yapmak istediğiniz işlemin numarasını girin: ")
 
-int area[10][10];
-int areawithships[10][10];
-int shots[10][10];
+if soru == "1":
+ sayi1=input("ilk sayiyi girin")
+ print (sayi1)
+ sayi2=input("ikinci sayiyi girin")
+ print (sayi2)
+ print (sayi1,"ve",sayi2,"toplamı",sayi1+sayi2,"dir")
 
-int score[1];
+if soru =="2":
+ sayi3=input("ilk sayiyi girin")
+ print (sayi3)
+ sayi4 =input("ikinci sayiyi girin")
+ print (sayi4)
+ print (sayi3,"ve",sayi4,"farki",sayi3-sayi4,"dir")
+ 
+if soru =="3":
+ sayi5=input("ilk sayiyi girin")
+ print (sayi5)
+ sayi6=input("ikinci sayiyi girin")
+ print (sayi6)
+ print (sayi5,"ve",sayi6,"carpimi",sayi5*sayi6,"dir")
 
-int main(){
- score[0] = 0;
- score[1] = 0;
- int comp = 0;
- int turn = 0;
- printf("Do you want to play with me? (1 or 0)\n");
- scanf("%d",&comp);
- srand(time(0));
- initialize();
- generate();
- while(1){
-  show();
-  printf("\ncoordinates: x,y\n");
-  int x,y;
-  scanf("%d,%d",&y,&x);
-  if(x<10&&x>-1&&y<10&&y>-1){
-   score[turn] += shot(x,y);
-   if(!check()){
-    break;
-   }
-   if(comp){
-    score[1] += play();
-   }else{
-    turn = !turn;
-   }
-  }else{
-   printf("\nTry again!\n");
-  }
- }
- printf("\nplayer1: %d\nplayer2: %d",score[0],score[1]);
-}
-
-int generate(){
- int i;
- for(i=0;i<3;i++){
-  while(1){
-   int x,y;
-   x = rand()%10;
-   y = rand()%10;
-   int isx = rand()%2;
-   if(areawithships[x][y]!=1){
-    areawithships[x][y] = 1;
-    switch(i){
-     case 0:
-      if(isx){
-       if(x<8){
-        areawithships[x+1][y] = 1;
-        areawithships[x+2][y] = 1;
-       }else{
-        areawithships[x-1][y] = 1;
-        areawithships[x-2][y] = 1;
-       }
-      }else{
-       if(y<8){
-        areawithships[x][y+1] = 1;
-        areawithships[x][y+2] = 1;
-       }else{
-        areawithships[x][y-1] = 1;
-        areawithships[x][y-2] = 1;
-       }
-      }
-     break;
-     case 1:
-      if(isx){
-       if(x<7){
-        areawithships[x+1][y] = 1;
-        areawithships[x+2][y] = 1;
-        areawithships[x+3][y] = 1;
-       }else{
-        areawithships[x-1][y] = 1;
-        areawithships[x-2][y] = 1;
-        areawithships[x-3][y] = 1;
-       }
-      }else{
-       if(y<7){
-        areawithships[x][y+1] = 1;
-        areawithships[x][y+2] = 1;
-        areawithships[x][y+3] = 1;
-       }else{
-        areawithships[x][y-1] = 1;
-        areawithships[x][y-2] = 1;
-        areawithships[x][y-3] = 1;
-       }
-      }
-     break;
-     case 2:
-      if(isx){
-       if(x<6){
-        areawithships[x+1][y] = 1;
-        areawithships[x+2][y] = 1;
-        areawithships[x+3][y] = 1;
-        areawithships[x+4][y] = 1;
-       }else{
-        areawithships[x-1][y] = 1;
-        areawithships[x-2][y] = 1;
-        areawithships[x-3][y] = 1;
-        areawithships[x-4][y] = 1;
-       }
-      }else{
-       if(y<6){
-        areawithships[x][y+1] = 1;
-        areawithships[x][y+2] = 1;
-        areawithships[x][y+3] = 1;
-        areawithships[x][y+4] = 1;
-       }else{
-        areawithships[x][y-1] = 1;
-        areawithships[x][y-2] = 1;
-        areawithships[x][y-3] = 1;
-        areawithships[x][y-4] = 1;
-       }
-      }
-     break;
-    }
-    break;
-   }
-  }
- }
-}
-
-int initialize(){
- int i,j;
- for(i=0;i<10;i++){
-  for(j=0;j<10;j++){
-   area[i][j] = 0;
-   areawithships[i][j] = 0;
-   shots[i][j] = 0;
-  }
- }
-}
-
-int shot(int x, int y){
- if(!shots[x][y]){
-  shots[x][y] = 1;
-  if(areawithships[x][y]){
-   area[x][y] = 2;
-   areawithships[x][y] = 0;
-   return 1;
-  }else{
-   area[x][y] = 1;
-   return 0;
-  }
- }else{
-  return 0;
- }
-}
-
-int check(){
- int i,j;
- for(i=0;i<10;i++){
-  for(j=0;j<10;j++){
-   if(areawithships[i][j]){
-    return 1;
-   }
-  }
- }
- return 0;
-}
-
-int show(){
- printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
- printf("\n         0     1     2     3     4     5     6     7     8     9\n-------------------------------------------------------------------------\n\n\n\n");
- int i,j;
- for(i=0;i<10;i++){
-  printf(" %d   |   ",i);
-  for(j=0;j<10;j++){
-   switch(area[i][j]){
-    case 0:
-     printf("0     ");
-    break;
-    case 1:
-     printf("      ");
-    break;
-    case 2:
-     printf("*     ");
-    break;
-   }
-  }
-  printf("|\n     |                                                               |\n     |                                                               |\n     |                                                               |\n");
- }
- printf("\n-------------------------------------------------------------------------\n");
-}
-
-int play(){
- return shot(rand()%10,rand()%10);
-}
+if soru =="4":
+ sayi7=input("ilk sayiyi giriniz")
+ print (sayi7)
+ sayi8=input("ikinci sayiyi giriniz")
+ print (sayi8)
+ print (sayi7,"ve",sayi8,"bolumu",sayi7/sayi8,"dir")
