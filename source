@@ -1,24 +1,27 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#Special thanks to @oguzhntopcu & @furkanyilmazx
+#special thanks to @oguzhntopcu & @furkanyilmazx
 from __future__ import division
-i1 = "(1) toplama"
-i2 = "(2) çıkarma"
-i3 = "(3) çarpma"
-i4 = "(4) bölme"
-print (i1,i2,i3,i4)
-soru = input("Lütfen işlem numarası girin: ")
-s1=input('sayi girin')
-s2=input('sayi girin')
-if soru == "1":
- top=int(s1)+int(s2)
- print (s1,"ve",s2,"toplamı",top,"dir")
-if soru =="2":
- fark=int(s1)-int(s2)
- print (s1,"ve",s2,"farki",fark,"dir")
-if soru =="3":
- crp=int(s1)*int(s2)
- print (s1,"ve",s2,"carpimi",crp,"dir")
-if soru =="4":
- bol=int(s1)/int(s2)
- print (s1,"ve",s2,"bolumu",bol,"dir")
+try:
+ i1 = "(1) toplama"
+ i2 = "(2) çıkarma"
+ i3 = "(3) çarpma"
+ i4 = "(4) bölme"
+ print (i1,i2,i3,i4)
+ soru = input("Lütfen işlem numarası girin: ")
+ s1=input('sayi girin')
+ s2=input('sayi girin')
+ if soru == "1":
+  top=int(s1)+int(s2)
+  print (s1,"ve",s2,"toplamı",top,"dir")
+ if soru =="2":
+  fark=int(s1)-int(s2)
+  print (s1,"ve",s2,"farki",fark,"dir")
+ if soru =="3":
+  crp=int(s1)*int(s2)
+  print (s1,"ve",s2,"carpimi",crp,"dir")
+ if soru =="4":
+  bol=int(s1)/int(s2)
+  print (s1,"ve",s2,"bolumu",bol,"dir")
+except ValueError:
+ print("Lütfen sadece rakam giriniz!")
