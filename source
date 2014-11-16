@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+#Special thanks to @oguzhntopcu & @furkanyilmazx
 from __future__ import division
 i1 = "(1) toplama"
 i2 = "(2) çıkarma"
@@ -7,27 +8,20 @@ i3 = "(3) çarpma"
 i4 = "(4) bölme"
 print (i1,i2,i3,i4)
 soru = input("Lütfen işlem numarası girin: ")
-
+s1=input('sayi girin')
+s2=input('sayi girin')
 if soru == "1":
- s1=input('ilk sayiyi girin')
- s2=input("ikinci sayiyi girin")
- top=int(s1) + int(s2)
+ top=int(s1)+int(s2)
  print (s1,"ve",s2,"toplamı",top,"dir")
 
 if soru =="2":
- s3=input("ilk sayiyi girin")
- s4=input("ikinci sayiyi girin")
- fark=int(s3)-int(s4)
- print (s3,"ve",s4,"farki",fark,"dir")
+ fark=int(s1)-int(s2)
+ print (s1,"ve",s2,"farki",fark,"dir")
  
 if soru =="3":
- s5=input("ilk sayiyi girin")
- s6=input("ikinci sayiyi girin")
- crp=int(s5)*int(s6)
- print (s5,"ve",s6,"carpimi",crp,"dir")
+ crp=int(s1)*int(s2)
+ print (s1,"ve",s2,"carpimi",crp,"dir")
 
 if soru =="4":
- s7=input("ilk sayiyi giriniz")
- s8=input("ikinci sayiyi giriniz")
- bol=int(s7)/int(s8)
- print (s7,"ve",s8,"bolumu",bol,"dir")
+ bol=int(s1)/int(s2)
+ print (s1,"ve",s2,"bolumu",bol,"dir")
