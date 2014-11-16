@@ -5,25 +5,29 @@ i1 = "(1) toplama"
 i2 = "(2) çıkarma"
 i3 = "(3) çarpma"
 i4 = "(4) bölme"
-print (i1 , i2 ,i3,i4)
-soru = input("Lütfen işlemin numarasını girin: ")
+print (i1,i2,i3,i4)
+soru = input("Lütfen işlem numarası girin: ")
 
 if soru == "1":
- sayi1=input("ilk sayiyi girin")
- sayi2=input("ikinci sayiyi girin")
- print (sayi1,"ve",sayi2,"toplamı",sayi1+sayi2,"dir")
+ s1=input('ilk sayiyi girin')
+ s2=input("ikinci sayiyi girin")
+ top=int(s1) + int(s2)
+ print (s1,"ve",s2,"toplamı",top,"dir")
 
 if soru =="2":
- sayi3=input("ilk sayiyi girin")
- sayi4 =input("ikinci sayiyi girin")
- print (sayi3,"ve",sayi4,"farki",sayi3-sayi4,"dir")
+ s3=input("ilk sayiyi girin")
+ s4=input("ikinci sayiyi girin")
+ fark=int(s3)-int(s4)
+ print (s3,"ve",s4,"farki",fark,"dir")
  
 if soru =="3":
- sayi5=input("ilk sayiyi girin")
- sayi6=input("ikinci sayiyi girin")
- print (sayi5,"ve",sayi6,"carpimi",sayi5*sayi6,"dir")
+ s5=input("ilk sayiyi girin")
+ s6=input("ikinci sayiyi girin")
+ crp=int(s5)*int(s6)
+ print (s5,"ve",s6,"carpimi",crp,"dir")
 
 if soru =="4":
- sayi7=input("ilk sayiyi giriniz")
- sayi8=input("ikinci sayiyi giriniz")
- print (sayi7,"ve",sayi8,"bolumu",sayi7/sayi8,"dir")
+ s7=input("ilk sayiyi giriniz")
+ s8=input("ikinci sayiyi giriniz")
+ bol=int(s7)/int(s8)
+ print (s7,"ve",s8,"bolumu",bol,"dir")
